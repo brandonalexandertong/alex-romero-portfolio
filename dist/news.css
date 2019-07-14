@@ -1,0 +1,72 @@
+.entry-1 {
+padding-top: 7vh;
+}
+
+.entries {
+  padding-bottom: 4vw;
+}
+
+.entry {
+  width: 55%;
+}
+
+.entry-title {
+  display: flex;
+}
+
+.entry-date {
+  margin-right: 3vw;
+  white-space: nowrap;
+}
+
+div.content-container {
+  width: 80%;
+}
+
+.title, .poem-section {
+  margin-bottom: .5vw;
+}
+
+.title,.entry-date p {
+  font-size: 16px;
+}
+
+/* making images appear in bottom right on hover */
+@keyframes appear {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.news-image img {
+  opacity: 0;
+  position: absolute;
+  width: 30vw;
+  right: 5vw;
+  bottom: 8vw;
+  visibility: hidden;
+}
+
+div.content-container:hover .news-image img {
+  animation-name: appear;
+  animation-duration: .2s;
+  animation-fill-mode: both;
+}
+
+/* Responsive */
+
+@media (max-width: 425px) {
+  div.entry {
+    width: 100%;
+  }
+
+  .title, .entry-date p {
+    font-size: 14px;
+  }
+}
