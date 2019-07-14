@@ -1,0 +1,238 @@
+// Animations
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@import "base";
+@import "typography";
+
+@mixin mq($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin drop-shadow($color) {
+  box-shadow: 0 1px 14px -4px $color;
+}
+
+
+/* Responsive  */
+//
+// @media (max-width: 580px) {
+//   h1 {
+//     font-size: 30px;
+//   }
+// }
+//
+// @media (max-width: 425px) {
+//   h1 {
+//     font-size: 24px;
+//   }
+// }
+//
+// @media (max-width: 330px) {
+//   h1 {
+//     font-size: 20px;
+//   }
+// }
+
+$mq-large: 580px;
+$mq-medium: 425px;
+$mq-small: 330px;
+$secondary-color: #0b0b0b;
+
+$primary-font: 'Crimson Text';
+$secondary-font: 'Daubenton';
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+  font-family: $primary-font, sans-serif;
+  font-size: 12px;
+  color: $secondary-color;
+}
+
+h1  {
+  font-size: 36px;
+  font-family: $secondary-font;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: #F4F4F4;
+  @include mq($mq-large) {
+    font-size: 30px;
+  }
+  @include mq($mq-medium) {
+    font-size: 24px;
+  }
+  @include mq($mq-small) {
+    font-size: 20px;
+  }
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 2.5vh;
+}
+
+p {
+  font-size: 12px;
+}
+
+img {
+  @include drop-shadow(#0b0b0b);
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2vh;
+  /* padding-bottom: 48px; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90vw;
+}
+
+a {
+  color: $secondary-color;
+  text-decoration: none;
+}
+
+.section-pad {
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+/* make cursors all pointers */
+.about-button, .alexander-button, .back-button, a:hover  {
+  cursor: crosshair;
+  }
+
+/* want to animate image so it slides down from top when we hover over h1  tag */
+
+li img {
+  max-width: 35vw;
+  max-height: 65vh;
+  @include drop-shadow(#0b0b0b);
+  opacity: 1;
+}
+
+div.images {
+  position: absolute;
+  width: 90vw;
+  transform: translateY(-50%);
+}
+
+@keyframes slideDown {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: 150vh;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    right: 0;
+  }
+
+  100% {
+    right: 105vw;
+  }
+}
+
+div.image1, div.image2 {
+  position: absolute;
+  width: 90vw;
+  transform: translateY(-50%);
+  transition: transform .3s;
+}
+
+div.image1 {
+  top: -100vh;
+}
+
+div.image2 {
+  right: -100vw;
+  top:  50vh;
+}
+
+div.image1 img {
+  float: left;
+}
+
+div.image2 img {
+  float: right;
+}
+
+a img {
+  position: relative;
+}
+
+a:hover .image1 img {
+  animation-name: slideDown;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+a:hover .image2 img {
+  animation-name: slideLeft;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.series-list-container {
+  background-color: #fff;
+}
+
+.black-background {
+  background-color:  $secondary-color;
+}
+
+.series-list {
+  padding-top: 6px;
+  font-size: 36px;
+  text-align: center;
+  padding-bottom: 48px;
+  padding-top: 12vh;
+}
+
+@keyframes blackToWhite {
+  0% {
+    background-color: $secondary-color;
+  }
+
+  100% {
+    background-color: #ffffff;
+  }
+}
+
+@keyframes whiteToBlack {
+  0% {
+    background-color: #ffffff;
+  }
+
+  100% {
+    background-color: $secondary-color;
+  }
+}
+
+.about-body {
+  color: #fff;
+  display: none;
+}
