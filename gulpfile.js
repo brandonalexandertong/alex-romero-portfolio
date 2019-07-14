@@ -72,6 +72,8 @@ gulp.task("deploy", function() {
   ghpages.publish('dist')
 })
 
+
+
 // run all tasks
 gulp.task('default', [
   "sass", "watch", "html", "fonts", "images"
