@@ -6,7 +6,8 @@ var sourceMaps = require('gulp-sourcemaps')
 var browserSync = require('browser-sync').create()
 // minimizing images
 var imageMin = require("gulp-imagemin")
-
+// gh-pages packages your dist file and deploys to github
+var ghpages = require('gh-pages');
 
 sass.compiler = require('node-sass')
 
@@ -65,6 +66,10 @@ gulp.task("watch", function() {
   gulp.watch("src/css/style.scss", ["sass"])
   gulp.watch("src/fonts/*", ["fonts"])
   gulp.watch("src/images/*", ["images"])
+})
+
+gulp.task("deploy", function() {
+  ghpages.publish('dist')
 })
 
 // run all tasks
