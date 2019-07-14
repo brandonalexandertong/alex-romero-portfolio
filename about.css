@@ -1,0 +1,93 @@
+.about-body a {
+  color: #ffffff;
+}
+
+section.block-1,  section.block-2,  section.block-3 {
+  display: flex;
+  padding-left: 5vw;
+}
+
+section.block-1 {
+  min-height: 35vh;
+  padding-top: 7vh;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.block-1 p, .block-1 div {
+  max-width: 25vw;
+}
+.cv-social {
+  padding-top: 4vh;
+}
+
+.cv-social a {
+  display: block;
+}
+
+.block-1 div {
+  width: 25vw;
+}
+
+section.block-2 {
+  min-height: 59vh;
+}
+
+section.block-3 {
+  min-height: 6vh;
+}
+
+div.contact-details {
+  position: absolute;
+  left: 35vw;
+  top: 2vh;
+}
+
+.back-button {
+  position: absolute;
+  right: 5vw;
+  top: 2vh;
+}
+
+.alexander-button {
+  position: absolute;
+  left: 5vw;
+  top: 2vh;
+}
+
+div.contact-body {
+  top: 5vh;
+  position: absolute;
+}
+
+/* Responsive  */
+
+@media (max-width: 750px) {
+
+  div.contact-details {
+    position: initial;
+    left: 35vw;
+    top: 2vh;
+    padding-left: 5vw;
+    min-height: 59vh;
+  }
+
+  div.contact-header {
+    display: none;
+  }
+
+  div.contact-body {
+    position: initial;
+  }
+
+  div.contact-body a {
+    display: block;
+  }
+
+  section.block-2 {
+    min-height: 0;
+  }
+
+  .block-1 p {
+    max-width: 90vw;
+  }
+}
