@@ -1,4 +1,5 @@
-// Animations
+/* animations */
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -9,95 +10,58 @@
   }
 }
 
-@import "base";
-@import "typography";
 
-@mixin mq($width) {
-  @media (max-width: $width) {
-    @content;
-  }
+
+/* postcss variables */
+
+:root {
+  --primary-color: #f4f4f4;
+  --secondary-color: #0b0b0b;
+  --box-shadow: 0 1px 14px -4px #0b0b0b;
+  --header-margin-top: 2vh;
+  --section-margin-left: 5vw;
+  --section-margin-right: 5vw;
+  --cursor: crosshair;
 }
-
-@mixin drop-shadow($color) {
-  box-shadow: 0 1px 14px -4px $color;
-}
-
-$mq-large: 580px;
-$mq-medium: 425px;
-$mq-small: 330px;
-$secondary-color: #0b0b0b;
-
-$primary-font: 'Crimson Text';
-$secondary-font: 'Daubenton';
 
 html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
 
-body {
-  font-family: $primary-font, sans-serif;
-  font-size: 12px;
-  color: $secondary-color;
-}
-
 h1  {
-  font-size: 36px;
-  font-family: $secondary-font;
   position: relative;
   z-index: 1;
   mix-blend-mode: difference;
-  color: #F4F4F4;
-  @include mq($mq-large) {
-    font-size: 30px;
-  }
-  @include mq($mq-medium) {
-    font-size: 24px;
-  }
-  @include mq($mq-small) {
-    font-size: 20px;
-  }
 }
 
 h2 {
-  font-weight: 400;
-  font-size: 18px;
   margin-bottom: 2.5vh;
 }
 
-p {
-  font-size: 12px;
-}
-
 img {
-  @include drop-shadow(#0b0b0b);
+  box-shadow: var(--box-shadow);
 }
 
 header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 2vh;
-  /* padding-bottom: 48px; */
+  margin-top: var(--header-margin-top);
   position: absolute;
   top: 0;
   left: 0;
   width: 90vw;
 }
 
-a {
-  color: $secondary-color;
-  text-decoration: none;
-}
-
 .section-pad {
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: var(--section-margin-left);
+  margin-right: var(--section-margin-right);
 }
 
 /* make cursors all pointers */
 .about-button, .alexander-button, .back-button, a:hover  {
-  cursor: crosshair;
+  cursor: var(--cursor);
   }
 
 /* want to animate image so it slides down from top when we hover over h1  tag */
@@ -105,7 +69,7 @@ a {
 li img {
   max-width: 35vw;
   max-height: 65vh;
-  @include drop-shadow(#0b0b0b);
+  box-shadow: var(--box-shadow);
   opacity: 1;
 }
 
@@ -176,16 +140,14 @@ a:hover .image2 img {
 }
 
 .series-list-container {
-  background-color: #fff;
+  background-color: var(--primary-color);
 }
 
 .black-background {
-  background-color:  $secondary-color;
+  background-color: var(--secondary-color);
 }
 
 .series-list {
-  padding-top: 6px;
-  font-size: 36px;
   text-align: center;
   padding-bottom: 48px;
   padding-top: 12vh;
@@ -193,25 +155,20 @@ a:hover .image2 img {
 
 @keyframes blackToWhite {
   0% {
-    background-color: $secondary-color;
+    background-color: var(--secondary-color);
   }
 
   100% {
-    background-color: #ffffff;
+    background-color: var(--primary-color);
   }
 }
 
 @keyframes whiteToBlack {
   0% {
-    background-color: #ffffff;
+    background-color: var(--primary-color);
   }
 
   100% {
-    background-color: $secondary-color;
+    background-color: var(--secondary-color);
   }
-}
-
-.about-body {
-  color: #fff;
-  display: none;
 }

@@ -1,4 +1,4 @@
-img {
+.index-image-container img {
   cursor: crosshair;
 }
 
@@ -19,12 +19,12 @@ div.index-holder {
   padding-top: 10vh;
 }
 
-.series-title {
+h3.series-title {
   padding-bottom: 1vw;
   font-size: 16px;
 }
 
-section {
+.index-holder section {
   margin-bottom: 6vw;
 }
 
