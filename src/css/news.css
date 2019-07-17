@@ -27,9 +27,6 @@ div.content-container {
   margin-bottom: .5vw;
 }
 
-.title,.entry-date p {
-  font-size: 16px;
-}
 
 /* making images appear in bottom right on hover */
 @keyframes appear {

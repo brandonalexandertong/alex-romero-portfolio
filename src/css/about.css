@@ -1,5 +1,5 @@
-.about-body a {
-  color: #ffffff;
+.about-body {
+  display: none;
 }
 
 section.block-1,  section.block-2,  section.block-3 {

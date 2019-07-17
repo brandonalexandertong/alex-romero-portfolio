@@ -1,5 +1,7 @@
 var gulp = require('gulp')
-var sass = require('gulp-sass')
+// postcss for additional features
+var postCss = require('gulp-postcss')
+
 var cleanCss = require('gulp-clean-css')
 var sourceMaps = require('gulp-sourcemaps')
 // starts browser sync and creates server to run
@@ -7,17 +9,40 @@ var browserSync = require('browser-sync').create()
 // minimizing images
 var imageMin = require("gulp-imagemin")
 // gh-pages packages your dist file and deploys to github
-var ghpages = require('gh-pages');
+var ghPages = require('gh-pages');
+// creating a concatenating variable
+var concat = require("gulp-concat")
 
-sass.compiler = require('node-sass')
 
-gulp.task("sass", function() {
-  // take style.scss
-  return gulp.src("src/css/style.scss")
-  // start watching scss code to create sourcemap
+
+
+gulp.task("postCss", function() {
+  // take style.css, base.css, typography.css
+  return gulp.src([
+    "src/css/base.css",
+    "src/css/typography.css",
+    "src/css/style.css",
+    "src/css/about.css",
+    "src/css/index.css",
+    "src/css/news.css",
+    "src/css/series.css"
+  ])
+  // start watching css code to create sourcemap
     .pipe(sourceMaps.init())
-  // run through sass
-    .pipe(sass())
+  // run through postcss
+    .pipe(
+      postCss([
+        require("autoprefixer"),
+        // allowing stage 1 features and above
+        require("postcss-preset-env")({
+          stage: 1,
+          // allowing internet explorer and the last 2 versions of all browsers
+          browsers: ["IE 11", "last 2 versions"]
+        })
+      ])
+    )
+    // concatenating all css files
+    .pipe(concat("style.css"))
     // clean the css
     .pipe(
       cleanCss({
@@ -52,7 +77,7 @@ gulp.task("images", function() {
     .pipe(gulp.dest("dist/images"))
 })
 
-// watch app.scss and run sass when a change is made
+// watch app.css and run sass when a change is made
 gulp.task("watch", function() {
   // start browserSync to allow browser to sync
   browserSync.init({
@@ -63,18 +88,18 @@ gulp.task("watch", function() {
 
   // run watch script which watches for changes and runs scripts when changed
   gulp.watch("src/*.html", ["html"]).on("change", browserSync.reload)
-  gulp.watch("src/css/style.scss", ["sass"])
+  gulp.watch("src/css/*", ["postCss"])
   gulp.watch("src/fonts/*", ["fonts"])
   gulp.watch("src/images/*", ["images"])
 })
 
 gulp.task("deploy", function() {
-  ghpages.publish('dist')
+  ghPages.publish('dist')
 })
 
 
 
 // run all tasks
 gulp.task('default', [
-  "sass", "watch", "html", "fonts", "images"
+  "postCss", "watch", "html", "fonts", "images"
 ])

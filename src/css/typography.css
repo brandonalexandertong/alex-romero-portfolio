@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700');
+
+@font-face {
+  font-family: 'Daubenton';
+  src: url('fonts/Daubenton.otf') format('otf'),
+       url('fonts/daubentonwebfont.woff') format('woff'),
+       url('fonts/daubentonwebfont.ttf') format('truetype');
+}
+
+/* media queries */
+
+@custom-media --mq-large (max-width: 580px);
+@custom-media --mq-medium (max-width: 425px);
+@custom-media --mq-small (max-width: 330px);
+
+:root {
+  --primary-font: 'Crimson Text';
+  --secondary-font: 'Daubenton';
+  --primary-color: #f4f4f4;
+  --secondary-color: #0b0b0b;
+  --h1-size: 36px;
+  --h2-size: 18px;
+  --h2-weight: 400;
+  --h4-size: 16px;
+  --body-size: 12px;
+  --body-line-height: 1.2;
+}
+
+@media (--mq-large) {
+  :root {
+    --h1-size: 30px;
+  }
+}
+
+@media (--mq-medium) {
+  :root {
+    --h1-size: 24px;
+  }
+}
+
+@media (--mq-small) {
+  :root {
+    --h1-size: 20px;
+  }
+}
+
+body {
+  font-family: var(--primary-font, serif);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+  color: var(--secondary-color);
+}
+
+.about-body {
+  color: var(--primary-color);
+}
+
+.about-body a {
+  color: var(--primary-color);
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+h1 {
+  font-family: var(--secondary-font);
+  font-size: var(--h1-size);
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: var(--h2-size);
+  font-weight: (--h2-weight);
+}
+
+
+h4 {
+  font-size: var(--h4-size);
+}
