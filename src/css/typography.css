@@ -20,10 +20,10 @@
   --primary-color: #f4f4f4;
   --secondary-color: #0b0b0b;
   --h1-size: 36px;
-  --h2-size: 18px;
+  --h2-size: 24px;
   --h2-weight: 400;
-  --h4-size: 16px;
-  --body-size: 12px;
+  --h4-size: 18px;
+  --body-size: 14px;
   --body-line-height: 1.2;
 }
 
@@ -73,7 +73,7 @@ h1 {
 
 h2 {
   font-size: var(--h2-size);
-  font-weight: (--h2-weight);
+  font-weight: var(--h2-weight);
 }
 
 

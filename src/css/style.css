@@ -27,6 +27,7 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    position: relative;
 }
 
 h1  {
@@ -36,7 +37,7 @@ h1  {
 }
 
 h2 {
-  margin-bottom: 2.5vh;
+  margin-bottom: 1vh;
 }
 
 img {
