@@ -55,15 +55,3 @@ div.content-container:hover .news-image img {
   animation-duration: .2s;
   animation-fill-mode: both;
 }
-
-/* Responsive */
-
-@media (max-width: 425px) {
-  div.entry {
-    width: 100%;
-  }
-
-  .title, .entry-date p {
-    font-size: 14px;
-  }
-}

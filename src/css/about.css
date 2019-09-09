@@ -58,36 +58,3 @@ div.contact-body {
   top: 5vh;
   position: absolute;
 }
-
-/* Responsive  */
-
-@media (max-width: 750px) {
-
-  div.contact-details {
-    position: initial;
-    left: 35vw;
-    top: 2vh;
-    padding-left: 5vw;
-    min-height: 59vh;
-  }
-
-  div.contact-header {
-    display: none;
-  }
-
-  div.contact-body {
-    position: initial;
-  }
-
-  div.contact-body a {
-    display: block;
-  }
-
-  section.block-2 {
-    min-height: 0;
-  }
-
-  .block-1 p {
-    max-width: 90vw;
-  }
-}

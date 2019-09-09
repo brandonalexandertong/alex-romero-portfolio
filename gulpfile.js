@@ -25,7 +25,8 @@ gulp.task("postCss", function() {
     "src/css/about.css",
     "src/css/index.css",
     "src/css/news.css",
-    "src/css/series.css"
+    "src/css/series.css",
+    "src/css/responsive.css"
   ])
   // start watching css code to create sourcemap
     .pipe(sourceMaps.init())

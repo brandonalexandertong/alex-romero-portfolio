@@ -148,12 +148,3 @@ div.index-horizontal-solo {
   padding: 2px 16px;
   color: white;
 }
-
-/* Responsive */
-@media (max-width: 425px) {
-  div.index-image-container {
-    display: block;
-    margin:  0 0 10vw 0;
-    width: initial;
-  }
-}
